@@ -4,7 +4,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
+//import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  * Servlet implementation class Register
@@ -12,6 +14,8 @@ import java.sql.*;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Connection con = null;
+	PreparedStatement psmt = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,12 +39,12 @@ public class Register extends HttpServlet {
         try{
         
         //loading drivers for mysql
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.Driver");
 
 	//creating connection with the database 
-          Connection  con=DriverManager.getConnection
-                     ("jdbc:mysql://localhost:3306/java_demo","root","admin");
-
+         // Connection  con=DriverManager.getConnection
+                    // ("jdbc:mysql://localhost:3306/java_demo","root","admin");
+        con =ConnectionFactory.getInstance().getConnection();
         PreparedStatement ps=con.prepareStatement
                   ("insert into venderInfo values(?,?,?)");
 
@@ -51,8 +55,15 @@ public class Register extends HttpServlet {
         
           if(i>0)
           {
-            out.println("You are sucessfully registered <br>");
-            out.println("<a href="+"/index.html"+">Try to login Here </a>");
+        	
+        	out.println("<center>");
+      		out.println("<body bgcolor=lightgreen><h1>");
+      		out.println(request.getAttribute("wrongUser"));
+      		out.println("You are sucessfully registered <br></h1>");
+      		out.println("<a href="+"index.html"+">Try to login Here </a>");
+      		out.println("</center>");
+      		out.println("</body>");  
+            
             
             
           }
