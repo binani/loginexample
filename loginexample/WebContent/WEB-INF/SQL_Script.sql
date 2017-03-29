@@ -1,3 +1,5 @@
+//Database table Script for run servlet application
+
 CREATE TABLE venderinfo ( 
 
 VendorName tinytext NOT NULL, 
