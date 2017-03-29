@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function checkform()
+{  
+	if (document.Register.userName.value =='') {
+		// something is wrong
+		alert('Please Enter Your Name');
+		document.Register.userName.focus();
+		return false;
+	}
+	else if (document.Register.userPassWord.value =='')
+	{
+		// something else is wrong
+		alert('Please Enter Pasword');
+		document.Register.userPassWord.focus();
+		return false;
+	}
+	else if (document.Register.userRePassWord.value ==' ' || document.Register.userRePassWord.value != document.Register.userPassWord.value)
+	{
+		// something else is wrong
+		alert('Your Password Matching not found');
+		document.Register.userRePassWord.focus();
+		return false;
+	} 
+	
+	return true;
+}
+</script>
+</head>
+<body>
+
+<BODY bgcolor=lightgreen>
+  <form name=Register method="get" action="loginexample/Register" onSubmit="return checkform(this)">
+  <center>
+  <h1>Register your Name and Pasword </h1><br>
+  <table border=1>
+  <tr><td>Enter Your Name :</td>
+  <td><input type="text" name="userName" value=""></td>
+  </tr>
+  <tr><td>Enter Your PassWord :</td>
+  <td><input type="password" name="userPassWord" value=""></td>
+  </tr>
+  <tr><td>Confirm Your PassWord :</td>
+  <td><input type="password" name="userRePassWord" value=""></td>
+  </tr>
+  <tr><td align=center><input type="submit" name="submit" value="Register" ></td>
+  <td align=center><input type="reset" name="reset" value="Refresh"></td>
+  </table>
+  </center>
+  </form>
+</body>
+</html>

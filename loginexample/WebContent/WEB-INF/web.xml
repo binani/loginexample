@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Welcome to Login Demo Servlet</display-name>
+  <description>
+     Welcome to Login Demo
+  </description>
+   <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>LoginServlet</servlet-class>
+   </servlet>
+   <servlet>
+    <servlet-name>SuccessPage</servlet-name>
+    <servlet-class>SuccessPage</servlet-class>
+   </servlet>
+  
+   <servlet>
+    <servlet-name>Failure</servlet-name>
+    <servlet-class>Failure</servlet-class>
+   </servlet>
+  
+    <servlet>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>Register</servlet-class>
+   </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>Register</servlet-name>
+  <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SuccessPage</servlet-name>
+    <url-pattern>/SuccessPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Failure</servlet-name>
+    <url-pattern>/Failure</url-pattern>
+  </servlet-mapping>
+</web-app>
